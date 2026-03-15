@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} Agregar Proyecto {% endblock title%}
+{% block content %}
+
+<h1>Agregar Proyecto</h1>
+<form action="{% url 'crear_proyecto' %}" method="post">
+  {% csrf_token %}
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre Proyecto</label>
+      <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre del proyecto"name="nombre">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+      <textarea class="form-control" id="descripcion" rows="3" name="descripcion"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="url" class="form-label">Ubicación Proyecto</label>
+      <input type="url" class="form-control" id="nombre" placeholder="Ubicación del proyecto"name="url">
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Guardar Proyecto</button>
+</form>
+   
+
+{% endblock %}  

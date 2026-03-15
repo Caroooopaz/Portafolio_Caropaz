@@ -1,0 +1,126 @@
+.admin-page {
+  padding: 10rem 0 5rem;
+  min-height: 100vh;
+  background: var(--bg-color);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--primary-light);
+}
+
+.admin-title {
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+}
+
+.admin-actions {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.btn-logout {
+  color: #d63031;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.btn-logout:hover {
+  text-decoration: underline;
+}
+
+/* Dashboard Table */
+.dashboard-card {
+  overflow: hidden;
+  border: 1px solid rgba(0, 95, 107, 0.05);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th {
+  padding: 1.5rem 2rem;
+  background: var(--cream);
+  color: var(--primary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.admin-table td {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(0, 95, 107, 0.05);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.admin-table tr:hover td {
+  background: rgba(0, 95, 107, 0.02);
+}
+
+.action-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+}
+
+.edit-link {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.delete-btn {
+  color: #d63031;
+  font-weight: 600;
+  background: none;
+  font-size: 1rem;
+}
+
+/* Form Styles */
+.form-card {
+  padding: 3.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.btn-cancel {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .admin-table th:nth-child(2),
+  .admin-table td:nth-child(2) {
+    display: none;
+  }
+}

@@ -1,0 +1,14 @@
+.env
+.env.local
+.env.*.local
+node_modules/
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+backend_python_django/capsulas/
+
+# Databases
+*.sqlite3
