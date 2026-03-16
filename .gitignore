@@ -1,14 +1,36 @@
+# Environment
 .env
 .env.local
 .env.*.local
+
+# Node / Frontend
 node_modules/
 dist/
+build/
+.eslintcache
 
-# Python
+# Python / Backend
 __pycache__/
 *.py[cod]
 *$py.class
-backend_python_django/capsulas/
+*.so
+.Python
+env/
+venv/
+pip-log.txt
+.tox/
+.coverage
+.cache
+*.egg-info
+.project
 
 # Databases
 *.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
+
+#Excercises
+excercises/
+
