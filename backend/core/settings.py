@@ -32,13 +32,19 @@ if not SECRET_KEY:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',') if os.getenv('ALLOWED_HOSTS') else ['*']
+# ALLOWED_HOSTS must be only the domain (no https://)
+raw_hosts = os.getenv('ALLOWED_HOSTS', '').split(',') if os.getenv('ALLOWED_HOSTS') else []
+ALLOWED_HOSTS = [host.replace('https://', '').replace('http://', '').strip() for host in raw_hosts]
+if not ALLOWED_HOSTS:
+    ALLOWED_HOSTS = ['*']
 
-# CORS configuration for local frontend development
-CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', '').split(',') if os.getenv('CORS_ALLOWED_ORIGINS') else []
+# CORS configuration: MUST include protocol (https://)
+raw_cors = os.getenv('CORS_ALLOWED_ORIGINS', '').split(',') if os.getenv('CORS_ALLOWED_ORIGINS') else []
+CORS_ALLOWED_ORIGINS = [origin if origin.startswith('http') else f'https://{origin.strip()}' for origin in raw_cors if origin]
 
-# CSRF Trusted Origins for production (Render)
-CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',') if os.getenv('CSRF_TRUSTED_ORIGINS') else []
+# CSRF Trusted Origins: MUST include protocol (https://)
+raw_csrf = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',') if os.getenv('CSRF_TRUSTED_ORIGINS') else []
+CSRF_TRUSTED_ORIGINS = [origin if origin.startswith('http') else f'https://{origin.strip()}' for origin in raw_csrf if origin]
 
 # Application definition
 
