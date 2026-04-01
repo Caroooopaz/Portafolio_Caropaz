@@ -12,8 +12,6 @@ services:
         value: "False"
       - key: SECRET_KEY
         generateValue: true
-      - key: SECRETS_FILE
-        value: ".env"
       - key: DB_NAME
         value: "postgres"
       - key: DATABASE_URL
