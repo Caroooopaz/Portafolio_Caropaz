@@ -4,6 +4,7 @@ services:
     name: django-backend
     env: python
     buildCommand: "cd backend && chmod +x build.sh && ./build.sh"
+    preDeployCommand: "cd backend && python manage.py migrate"
     startCommand: "cd backend && gunicorn core.wsgi:application"
     envVars:
       - key: PYTHON_VERSION
