@@ -12,7 +12,12 @@ EMAIL = os.getenv('DJANGO_SUPERUSER_EMAIL', 'admin@example.com')
 PASSWORD = os.getenv('DJANGO_SUPERUSER_PASSWORD', 'admin1234')
 
 if not User.objects.filter(username=USERNAME).exists():
-    print(f"Creando superusuario: {USERNAME}")
+    print(f"Creando superusuario: {USERNAME} con email {EMAIL}")
     User.objects.create_superuser(USERNAME, EMAIL, PASSWORD)
 else:
-    print(f"El superusuario {USERNAME} ya existe.")
+    print(f"El superusuario {USERNAME} ya existe. Actualizando contraseña...")
+    user = User.objects.get(username=USERNAME)
+    user.set_password(PASSWORD)
+    user.email = EMAIL
+    user.save()
+    print("Contraseña y email actualizados.")
